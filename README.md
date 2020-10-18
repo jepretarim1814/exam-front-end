@@ -28,7 +28,7 @@
 2. You can use vuejs or any framework you are familiar with.
 3. If login, the token will automatic refresh if the TTL is reach to 5mins (YES 5 mins), since the TTL is 10 mins. Upon refreshing, the current token will be destoryed and replace with the new one.
 
-### Instruction
+### Installation
 ```
 npm install
 ```
