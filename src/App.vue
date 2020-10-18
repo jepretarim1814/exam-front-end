@@ -54,10 +54,11 @@
       },
       methods: {
           ...mapActions("auth", [
-              'logout'
+              'logout',
           ]),
           logOut() {
               this.logout();
+              this.$root.$emit('clearTimerInterval');
               this.$router.push('/login');
           }
       }

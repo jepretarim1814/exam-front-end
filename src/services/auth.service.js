@@ -9,6 +9,7 @@ class AuthService {
         })
             .then(({data}) => {
                 if (data.user.accessToken) {
+                    this.revokeToken();
                     localStorage.setItem('user', JSON.stringify(data.user));
                 }
                 return data.user;
@@ -19,8 +20,7 @@ class AuthService {
         return axios.post('/api/user/logout',{}, {
             headers: authHeader()
         }).then(() => {
-            localStorage.removeItem('user');
-            localStorage.removeItem('timeToRefresh');
+            this.revokeToken();
         });
     }
 
@@ -41,6 +41,11 @@ class AuthService {
                 }
                 return data.user;
             })
+    }
+
+    revokeToken() {
+        localStorage.removeItem('user');
+        localStorage.removeItem('timeToRefresh');
     }
 }
 

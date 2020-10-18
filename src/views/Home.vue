@@ -29,6 +29,9 @@
           if (!this.currentUser) {
               this.$router.push('/login');
           }
+          this.$root.$on('clearTimerInterval', function () {
+              clearInterval(this.startTimeInterval);
+          });
           this.startTimer();
       },
       methods: {
@@ -51,8 +54,8 @@
           },
           async resetTimer() {
               clearInterval(this.startTimeInterval);
-              await this.refreshToken();
               this.removeTimeToRefreshFromLocalStorage();
+              await this.refreshToken();
               this.startTimer();
           },
           removeTimeToRefreshFromLocalStorage() {

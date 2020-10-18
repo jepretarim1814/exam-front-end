@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-// import { VuejsDatatableFactory } from 'vuejs-datatable';
 import jQuery from "jquery";
 
 import 'bootstrap';
@@ -27,10 +26,9 @@ library.add(faHome, faUser, faUserPlus, faSignInAlt, faSignOutAlt);
 Vue.config.productionTip = false;
 
 Vue.component('fa', FontAwesomeIcon);
-// Vue.use( VuejsDatatableFactory );
 
 new Vue({
   router,
   store,
   render: h => h(App)
-}).$mount('#app')
+}).$mount('#app');
